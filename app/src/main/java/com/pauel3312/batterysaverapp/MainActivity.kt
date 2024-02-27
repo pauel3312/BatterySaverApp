@@ -15,7 +15,6 @@ import android.os.BatteryManager
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.compose.setContent
-import androidx.activity.result.contract.ActivityResultContracts.RequestPermission
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
@@ -181,7 +180,7 @@ private class ConnectThread(device: BluetoothDevice) : Thread() {
         Log.d(TAG, "ConnectThread running")
         bluetoothAdapter?.cancelDiscovery()
 
-        mmSockest?.let { socket ->
+        mmSocket?.let { socket ->
             // Connect to the remote device through the socket. This call blocks
             // until it succeeds or throws an exception.
             var failureCounter = 0
